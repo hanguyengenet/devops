@@ -4,6 +4,7 @@ agent { label 'windows_worker' }
     stage('Build') {
       steps {
         echo 'Building..'
+        bat "\"C:\\Program files (x86)\\Microsoft visual studio\\2019\\Buildtools\\msbuild\\Current\\bin\\msbuild.exe\""
       }
     }
     stage('Test') {
