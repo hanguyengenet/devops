@@ -5,7 +5,7 @@ agent { label 'windows_worker' }
       steps {
         dir("dotnet/src") {
           echo 'Building..'
-          bat 'msbuild.exe inside.domipay.vn\\Inside.Domipay.Service\\Inside.Domipay.Service.csproj'
+          bat "msbuild.exe inside.domipay.vn\\Inside.Domipay.Service\\Inside.Domipay.Service.csproj"
       }
     }
     stage('Test') {
