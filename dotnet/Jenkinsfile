@@ -3,9 +3,9 @@ agent { label 'windows_worker' }
   stages {
     stage('Build') {
       steps {
-        dir("dotnet/src/inside.domipay.vn/Inside.Domipay.Service") {
+        dir("dotnet/src") {
           echo 'Building..'
-          bat "\"C:\\Program files (x86)\\Microsoft visual studio\\2019\\Buildtools\\msbuild\\Current\\bin\\msbuild.exe\" "
+          bat "\"C:\\Program files (x86)\\Microsoft visual studio\\2019\\Buildtools\\msbuild\\Current\\bin\\msbuild.exe\" /c inside.domipay.vn\\Inside.Domipay.Service\\Inside.Domipay.Service.csproj"
         }
       }
     }
