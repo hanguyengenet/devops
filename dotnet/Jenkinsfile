@@ -31,12 +31,12 @@ stage('unstash and deploy') {
                     unstash "artifact"
                 }
             }
+        }   
+        stages('Deploy') {
+        steps {
+            echo 'Deploying....'
+            }
         }
-    }    
-    stages('Deploy') {
-      steps {
-        echo 'Deploying....'
-      }
     }
-  }
+}
 }
