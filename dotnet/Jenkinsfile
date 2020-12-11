@@ -9,11 +9,28 @@ agent { label 'windows_worker' }
         }
       }
     }
+    stage ('Stash from worker build'){
+        steps {
+            dir('dotnet/src/inside.domipay.vn/Inside.Domipay.Service/bin/Debug/') {
+                stash name: "artifact", includes: "*.dll"
+            }
+        }
+    }  
     stage('Test') {
       steps {
         echo 'Testing..'
       }
     }
+stage('unstash and deploy') {
+    agent { label 'master' }
+    stages {
+        stage('Unstash on master') {
+            steps {
+                dir('/data/src') {
+                    unstash "artifact"
+                }
+            }
+        }
     stage('Deploy') {
       steps {
         echo 'Deploying....'
