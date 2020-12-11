@@ -21,20 +21,20 @@ agent { label 'windows_worker' }
         echo 'Testing..'
       }
     }
-}
-stage('unstash and deploy') {
-    agent { label 'master' }
-    stages {
-        stage('Unstash on master') {
-            steps {
-                dir('/data/src') {
-                    unstash "artifact"
+    stage('unstash and deploy') {
+        agent { label 'master' }
+        stages {
+            stage('Unstash on master') {
+                steps {
+                    dir('/data/src') {
+                        unstash "artifact"
+                    }
                 }
-            }
-        }   
-        stages('Deploy') {
-        steps {
-            echo 'Deploying....'
+            }   
+            stages('Deploy') {
+            steps {
+                echo 'Deploying....'
+                }
             }
         }
     }
