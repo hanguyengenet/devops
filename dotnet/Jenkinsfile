@@ -32,11 +32,11 @@ stage('unstash and deploy') {
                 }
             }
         }
+    }    
     stages('Deploy') {
       steps {
         echo 'Deploying....'
       }
     }
   }
-}
 }
