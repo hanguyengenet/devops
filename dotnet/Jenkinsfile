@@ -21,7 +21,8 @@ agent { label 'windows_worker' }
         echo 'Testing..'
       }
     }
-    stage('unstash and deploy') {
+    //('unstash and deploy')
+    stage {
         agent { label 'master' }
         stages {
             stage('Unstash on master') {
