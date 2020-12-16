@@ -22,9 +22,9 @@ agent { label 'windows_worker' }
       }
     }
     //('unstash and deploy')
-    stage {
-        agent { label 'master' }
+    //stage {
         stages {
+        agent { label 'master' }
             stage('Unstash on master') {
                 steps {
                     dir('/data/src') {
@@ -38,6 +38,6 @@ agent { label 'windows_worker' }
                 }
             }
         }
-    }
+    //}
 }
 }
