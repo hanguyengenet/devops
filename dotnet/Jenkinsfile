@@ -21,9 +21,9 @@ agent { label 'windows_worker' }
         echo 'Testing..'
       }
     }
-    //stage ('unstash and deploy') {
-        stage {
-        agent { label 'master' }
+    stage ('unstash and deploy') {
+        agent { label 'master' }        
+        stages {
             stage('Unstash on master') {
                 steps {
                     dir('/data/src') {
@@ -37,6 +37,6 @@ agent { label 'windows_worker' }
                 }
             }
         }
-    //}
+    }
 }
 }
